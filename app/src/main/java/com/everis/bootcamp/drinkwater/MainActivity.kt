@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceManager
 import androidx.appcompat.app.AppCompatActivity
+import com.everis.bootcamp.utils.PreferencesUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -24,9 +25,9 @@ class MainActivity : AppCompatActivity(),
         prefs.registerOnSharedPreferenceChangeListener(this)
     }
 
-    /*TODO: 007 - crie uma função updateWaterCount
-        - Atualize o textview_quantity com o valor da PreferencesUtils.getWaterCount
-     */
+    fun updateWaterCount() {
+        textview_quantity.text = PreferencesUtils.getWaterCount(this).toString()
+    }
 
     /*TODO: 008 - crie uma função chamada incrementWaterHandler
         - Crie uma intent explicita para acionar o DrinkWaterReminderIntentService
